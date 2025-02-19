@@ -144,3 +144,34 @@ function removeTodoFromStorage(todoId) {
     const updatedTodos = todos.filter(todo => todo.id != todoId);
     localStorage.setItem('todos', JSON.stringify(updatedTodos));
 }
+
+
+
+
+var modoscuro=localStorage.getItem('modoscuro')==="true";
+if (modoscuro==null){
+    modoscuro=false;
+}
+console.log(modoscuro);
+
+document.getElementById("boton").addEventListener("click", ()=>{
+    
+    modoscuro= !modoscuro
+    localStorage.setItem('modoscuro', modoscuro);
+    cambioColor();
+   
+});
+
+function cambioColor(){
+    if (modoscuro==true){
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+        console.log("modo oscuro activado");
+    } else if (modoscuro==false){
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+        console.log("modo oscuro desactivado");
+    }
+}
+
+cambioColor();
